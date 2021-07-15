@@ -1,0 +1,76 @@
+#include <iostream>
+using namespace std;
+
+class Node{
+	public:
+		int data;
+		Node* next;
+};
+
+void print(Node *n){
+	while(n!=NULL){ //run until there is a node,or n->next!=NULL 
+		cout<<n->data<<" ";
+		n=n->next;
+	}
+	};
+	void print2(Node *n){
+	while(n->next!=NULL){ 
+		cout<<n->data<<" ";
+		n=n->next;
+	}
+	cout<<n->data<<" ";
+	};
+
+void append(Node *head,int data){ //we are dereferencing to node
+	Node *n=new Node();
+	n->data=data;
+	while(head->next!=NULL){
+		head=head->next;
+	}
+	head->next=n;
+}
+void begin(Node **head,int data){ //we are dereferencing head to heap's stored head
+	
+	
+	Node *n=new Node();
+	n->data=data;
+	n->next=*head;
+	*head=n;
+}
+void merge(Node *head,Node*head2){
+	while(head->next!=NULL){
+		head=head->next;
+	}
+	head->next=head2;
+	
+}
+int main(){
+	//ll1
+	Node* head=NULL;
+	head= new Node();
+	Node* second=new Node();
+	Node* third=new Node();
+	//ll2
+	Node* head2=new Node();
+	Node* second2=new Node();
+	Node* third2=new Node();
+
+	
+	head->data=1;
+	head->next=second;
+	second->data=2;
+	second->next=third;
+	(*third).data=3;
+	(*third).next=NULL;
+	
+	
+	(*head2).data=31;
+	(*head2).next=second2;
+	(*second2).data=32;
+	(*second2).next=third2;
+	(*third2).data=33;
+	(*third2).next=NULL;
+	merge(head,head2);
+	print2(head);
+
+}

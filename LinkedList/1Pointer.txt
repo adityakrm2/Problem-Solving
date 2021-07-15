@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+int a=1;
+cout<<&a<<endl;
+int*p;
+cout<<p<<" "<<&p<<endl;
+p=&a;	
+cout<<p<<" "<<&p<<" "<<&a<<endl;
+
+int **q;
+cout<<q<<" "<<&q<<endl;
+q=&p;
+cout<<q<<" "<<*q<<" "<<**q<<" "<<&q<<endl;
+
+return 0;
+}

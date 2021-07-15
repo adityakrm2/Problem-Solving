@@ -1,0 +1,14 @@
+def find_num(x,y):
+
+    count=0
+    for _ in x:
+        count+=1
+        if(_==y):
+            print(f"Found {y} at {count} element")
+            break
+    else:
+        print("Not found")
+
+x=[1,2,4,5,6]
+y=4
+find_num(x,y)

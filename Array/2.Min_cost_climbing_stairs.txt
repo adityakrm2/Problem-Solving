@@ -1,0 +1,52 @@
+1. Dp
+
+class Solution {
+public:
+
+int minCostClimbingStairs(vector<int>& save) {
+    // it's a simple dynamic programming problem ;
+    // our optimal substructure is the first two element if you begin from the left ;
+    // the last two element if you start from the end ;
+    // after that you will start your loop from index 2 || (save.size()-3) ;
+    // each time you update your array ;
+    // you update your array by the minmal of the two element after the current element ;
+    // i'll start from the right of the array ;
+    for (int i = (save.size()-3) ; i>=0 ; i--)
+        save[i] = min (save[i+1] , save[i+2]) + save[i] ;
+    // then we will gain the result in the first and second element of our array ;
+    // so it will be O(n) time , and O(1) space ;
+    return min(save[0] , save[1]) ;
+}
+};
+
+2.(Not tested)
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+int a[]={10,15,20};
+int n=sizeof(a)/sizeof(a[0]);
+int ct=0;
+int cost=0;
+while(ct<n){
+	if(ct+2<=n){
+		if(a[ct]+a[ct+2]<a[ct+1]){
+			ct+=2;
+			cost+=a[ct];
+		}
+		else{
+			ct++;
+			cost+=a[ct];
+		}
+	}
+	if(ct+2>=n){
+		break;
+	}
+}
+cout<<cost<<"\n";
+}
+

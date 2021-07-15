@@ -1,0 +1,50 @@
+def max_visited_speciality(patient_medical_speciality_list,medical_speciality):
+    # write your logic here
+    cP,cO,cE=0,0,0
+    for i in patient_medical_speciality_list:
+        if 'P'==i:
+            cP+=1
+        elif 'E'==i:
+            cE+=1
+        elif 'O'==i:
+            cO+=1
+       
+            
+    if cP>cO and cP>cE:
+        return medical_speciality['P']
+    elif(cO>cE):
+        return medical_speciality['O']
+    else:
+        return medical_speciality['E']
+2
+
+def max_visited_speciality(patient_medical_speciality_list,medical_speciality):
+    # write your logic here
+    p1=0
+    o1=0
+    e1=0
+    for i in range(0,len(patient_medical_speciality_list)):
+        if i%2!=0:
+            if patient_medical_speciality_list[i]=='P':
+                p1+=1
+            elif patient_medical_speciality_list[i]=='O':
+                o1+=1
+            else:
+                e1+=1
+    if p1>e1:
+        if p1>o1:
+            speciality=medical_speciality["P"]
+        else:
+            speciality=medical_speciality["O"]
+    else:
+        if e1>o1:
+            speciality=medical_speciality["E"]
+        else:
+            speciality=medical_speciality["O"]
+    return speciality
+
+#provide different values in the list and test your program
+patient_medical_speciality_list=[301,'O',302, 'P' ,305, 'P' ,401, 'O' ,656, 'O']
+medical_speciality={"P":"Pediatrics","O":"Orthopedics","E":"ENT"}
+speciality=max_visited_speciality(patient_medical_speciality_list,medical_speciality)
+print(speciality)

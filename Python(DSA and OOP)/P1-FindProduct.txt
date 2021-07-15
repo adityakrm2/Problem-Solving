@@ -1,0 +1,18 @@
+def find_product(num1, num2, num3):
+    product = 1
+    # write your logic here
+    for _ in num1, num2, num3:
+        if (num3 == 7):
+            product = -1
+            break
+        elif (_ == 7):
+            product = 1
+
+        else:
+            product = product * _
+    return product
+
+
+# Provide different values for num1, num2, num3 and test your program
+product = find_product(1, 5, 3)
+print(product)

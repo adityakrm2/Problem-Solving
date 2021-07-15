@@ -1,0 +1,19 @@
+
+def format_name(name,name2):
+  if name=="" or name2=="":
+    return "Invalid input"
+  fname=name.capitalize()
+  gname=name2.title()
+  print(fname)
+  return f"{gname} is that"
+print(format_name(input("Enter Name: "),input("Enter Name2: ")))
+
+"""
+def outer_function(a, b):
+    def inner_function(c, d):
+        return c + d
+    return inner_function(a, b)
+ 
+result = outer_function(5, 10)
+print(result)
+"""

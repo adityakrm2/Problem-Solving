@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+
+int arr[] = {-5, 3, 6, 12, 15};
+int arr1[]={-19, -10, -6, -3, 4};
+
+int n= sizeof(arr)/sizeof(arr[0]);
+int n1= sizeof(arr1)/sizeof(arr1[0]);
+
+int n2= n + n1;
+
+int arr2[n2];
+int count=0;
+for(int i=0; i<n; i++){
+    arr2[i]=arr[i];
+    count+=1;
+}
+
+for(int i=0; i<n1;i++){
+    arr2[count]=arr1[i];
+    count++;
+}
+int median;
+
+if(n2%2==1){
+    median=n2/2;
+    cout<<arr2[median];
+}
+else{
+    median=n2/2;
+    int median2=median-1;
+   float median3=(arr2[median] + arr2[median2])/2;
+cout<<median3;
+}
+
+    return 0;
+}
+
+//Method 2: while merging just merge upto median(which is n+n1/2) to save complexity

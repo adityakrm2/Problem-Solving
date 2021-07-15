@@ -1,0 +1,22 @@
+def encode(message):
+    enc=""
+    curr=1
+    if(len(message)==1):
+        enc=enc+ str(1)+ message[0]
+        return enc
+    else:
+        for i in range(0,len(message)-1):
+
+
+            if message[i]==message[i+1]:
+                curr+=1
+            else:
+                enc = enc+str(curr)+message[i]
+                curr=1
+        if(message[i+1]==message[i]):
+            enc=enc+str(curr)+message[i]
+        else:
+            enc = enc + str(1) + message[i+1]
+        return enc
+encoded_message=encode("A")
+print(encoded_message)

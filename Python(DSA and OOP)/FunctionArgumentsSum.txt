@@ -1,0 +1,11 @@
+def check_double(number):
+    n_double=str(number*2)
+    number=str(number)
+    if len(n_double)==len(number) and n_double!=number:
+        for i in n_double:
+            if i not in number:
+                return False
+        return True
+    return False
+
+print(check_double(125874))

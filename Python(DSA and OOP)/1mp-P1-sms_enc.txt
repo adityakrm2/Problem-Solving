@@ -1,0 +1,21 @@
+#lex_auth_01269444961482342489
+final=[]
+vowels= ['a','e','i','o','u','A','E','I','O','U']
+def sms_encoding(data):
+    word = data.split()
+    for _ in word:
+        if _ in vowels:
+            final.append(_)
+        else:
+            for i in _:
+                if i not in vowels:
+                    final.append(i)
+        final.append(" ")
+
+    return "".join(final)
+
+data="I love Python"
+print(sms_encoding(data))
+
+# final.append("".join(t))
+#     return " ".join(final)

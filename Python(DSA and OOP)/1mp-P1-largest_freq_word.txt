@@ -1,0 +1,38 @@
+# file = open("data.txt", "r")  
+      
+#Gets each line till end of file is reached  
+#for line in file:  
+    #Splits each line into words  
+    #string = line.lower().replace(',','').replace('.','').split(" ");  
+    #Adding all words generated in previous step into words  
+   # for s in string:  
+       # words.append(s); 
+
+def max_frequency_word_counter(data):
+    data = data.replace(",", " ")
+    data = data.lower().replace(',','').replace('.','').split(" ")
+    word = ""
+    curr = 0
+    frequency = 0
+
+    for i in range(0, len(data) - 1):
+        curr = 1
+        for j in range(i + 1, len(data)):
+
+            if data[i] == data[j]:
+                curr += 1
+            if curr > frequency:
+                    frequency = curr
+                    word = data[i]
+            if curr==frequency:
+                if len(word)<len(data[i]):
+                    frequency = curr
+                    word = data[i]
+            
+
+    print(word, frequency)
+
+
+# Provide different values for data and test your program.
+data = "Work like youasd do youasd not need money, love like youasd have never been hurt, and youasd like dance like no one is watching"
+max_frequency_word_counter(data)

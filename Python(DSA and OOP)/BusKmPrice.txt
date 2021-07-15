@@ -1,0 +1,16 @@
+def calculate(distance,no_of_passengers):
+    sp=80*no_of_passengers
+    cp=70/10*distance
+    profit=sp-cp
+    if profit>=0:
+        return profit
+    else:
+        return -1
+
+
+
+
+#Provide different values for distance, no_of_passenger and test your program
+distance=20
+no_of_passengers=30
+print(calculate(distance,no_of_passengers))

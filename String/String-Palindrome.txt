@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+ 
+char arr[]="abcba";
+
+int first=0;
+int last=strlen(arr)-1;
+
+while(last>first){
+   if(arr[first]!=arr[last]){
+      cout<<"not P";
+      return 0;
+   }
+   last--;
+   first++;
+}
+cout<<"P";
+
+}

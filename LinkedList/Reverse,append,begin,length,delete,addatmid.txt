@@ -1,0 +1,127 @@
+#include <iostream>
+using namespace std;
+
+class Node{
+	public:
+		int data;
+		Node* next;
+};
+
+void print(Node *n){
+	while(n!=NULL){ //run until there is a node,or n->next!=NULL +1
+		cout<<n->data<<" ";
+		n=n->next;
+	}
+	};
+void append(Node **head_ref,int data){
+	Node* n= new Node();
+	Node *last=*head_ref;
+	n->data=data;
+	n->next=NULL;
+	  if (*head_ref == NULL)  
+    {  
+        *head_ref = n;  
+        return;  
+    }  
+	 while (last->next != NULL) { //stop when node->link will have null
+        last = last->next; 
+	}
+      last->next = n;  
+};	
+void begin(Node **head_ref,int data){
+	Node* n= new Node();
+	
+	n->data=data;
+	n->next=*head_ref;
+	*head_ref=n;
+
+	
+	
+};	
+void insertafter(Node *prev_ref,int data){
+	if (prev_ref == NULL)  
+    {  
+        cout << "the given previous node cannot be NULL";  
+        return;  
+    } 
+    
+	Node* n= new Node();
+	
+	n->data=data;
+	n->next=prev_ref->next;
+	prev_ref->next=n;
+	
+	
+};
+void deleteNode(Node** head_ref,int key){
+	Node* temp=*head_ref;
+	Node* prev =NULL;
+	
+	if(temp!=NULL && temp->data==key){
+		*head_ref=temp->next;
+		delete temp;
+		return;
+	}
+	else{
+		while(temp!=NULL && temp->data!=key){
+			prev=temp;
+			temp=temp->next;
+		}
+		if(temp==NULL)
+		return;
+		prev->next=temp->next;
+		delete temp;
+	}
+	
+}
+int length(Node*head){
+	int count=0;
+	while(head!=NULL){
+		count++;
+		head=head->next;
+		
+	}
+	return count;
+}
+void reverse(Node** head){
+	Node*next=NULL;
+	Node*prev=NULL;
+	Node* current= *head;
+	
+	while(current!=NULL){
+		next= current->next;
+		current->next=prev;
+		prev=current;
+		current=next;
+	}
+	*head= prev;
+	
+}
+int main(){
+	
+	Node* head=NULL;
+	head= new Node();
+	Node* second=new Node();
+	Node* third=new Node();
+	
+	head->data=1;
+	head->next=second;
+	
+	second->data=2;
+	second->next=third;
+	
+	(*third).data=3;
+	(*third).next=NULL;
+	
+	
+	int data=11;
+	append(&head,data);
+	begin(&head,12);
+	insertafter(head->next,99);
+	deleteNode(&head,12);	
+	cout<<length(head)<<endl;
+	reverse(&head);
+	print(head);
+	
+
+}

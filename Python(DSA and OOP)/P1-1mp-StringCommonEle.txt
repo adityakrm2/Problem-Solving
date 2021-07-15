@@ -1,0 +1,23 @@
+2. DIDNT WORK SOMEHOW(ON LAST TEST CASE)Ass4
+
+def find_common_characters(msg1,msg2):
+    str=""
+    for i in msg1:
+        if i in msg2:
+            str+=i
+            str=str.replace(" ","")
+    if len(str)==0:
+        return -1
+    else:
+        return str
+
+msg1="I like Python"
+msg2="Java is a very popular language"
+common_characters=find_common_characters(msg1,msg2)
+print(common_characters)
+
+3
+
+s1=set(msg1)
+    s2=set(msg2)
+    return s1&s2

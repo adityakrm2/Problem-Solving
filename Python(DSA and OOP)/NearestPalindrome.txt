@@ -1,0 +1,22 @@
+def Palindrome(number):
+    temp = number
+    sum=0
+    while (temp > 0):
+        rem = temp % 10;
+        sum = sum * 10 + rem;
+        temp //= 10;
+    if sum==number:
+        return True
+    else:
+        return False
+def nearest_palindrome(number):
+    number+=1
+    check=Palindrome(number)
+    if check:
+        return number
+    else:
+        return nearest_palindrome(number)
+
+
+number=99
+print(nearest_palindrome(number))

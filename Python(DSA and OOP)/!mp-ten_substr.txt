@@ -1,0 +1,23 @@
+def find_ten_substring(num_str):
+    l=[]
+    for i in range(0,len(num_str)):
+        str=""
+        str+=num_str[i]
+        for j in range(i+1,len(num_str)):
+            str+=num_str[j]
+            l.append(str)
+    l1=[]
+    for _ in l:
+        temp=int(_)
+        sum=0
+        while(temp>0):
+            r=temp%10
+            sum+=r
+            temp=temp//10
+        if sum==10:
+            l1.append(_)
+    return l1
+num_str="3523014"
+print("The number is:",num_str)
+result_list=find_ten_substring(num_str)
+print(result_list)

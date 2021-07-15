@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool hsh[90000001];//0 for prime,every ele 0
+
+void sieve(){
+int max=90000000;
+hsh[0]=hsh[1]=1;
+for(int i=2;i*i<=max;i++){
+	if(hsh[i]==0){
+		for(int j=i*i;j<=max;j+=i) hsh[j]=1;
+	}
+}
+}
+
+int main()
+{
+
+int q,n;
+cin>>q;
+while(q--){
+	sieve();
+	cin>>n,cout<<hsh[n]<<"\n";
+}
+
+} 
+
+Q.
+#include <bits/stdc++.h>
+using namespace std;
+bool hsh[90000001];//0 for prime,every ele 0
+vector<int> v;
+int main()
+{
+
+int max=90000000;
+for(int i=2;i*i<=max;i++){
+	if(hsh[i]==0){
+		for(int j=i*i;j<=max;j+=i)
+			hsh[j]=1;
+	}
+}
+for(int i=2;i<=max;i++){
+	if(!hsh[i])
+		v.push_back(i);
+}
+
+int q,n;
+cin>>q;
+while(q--)
+	cin>>n,cout<<v[n-1]<<"\n";
+
+} 

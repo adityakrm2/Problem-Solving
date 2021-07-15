@@ -1,0 +1,16 @@
+class Bill:
+    def __init__(self,bill_id,patient_name,bill_amount):
+        self.__bill_id=bill_id
+        self.patient_name=patient_name
+        self.bill_amount=bill_amount
+    def set_bill_id(self,new_id):
+        self.__bill_id=new_id
+    def get_bill_id(self):
+        return self.__bill_id
+    def get_patients_name(self):
+        print(self.patient_name)
+p1=Bill(11,"adi",500)
+print(p1.bill_amount)
+Bill.set_bill_id(p1,69)
+print(Bill.get_bill_id(p1))
+Bill.get_patients_name(p1)

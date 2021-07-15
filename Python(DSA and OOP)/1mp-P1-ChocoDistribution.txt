@@ -1,0 +1,27 @@
+child_id=(10,20,30,40,50)
+chocolates_received=[12,5,3,4,6]
+
+def calculate_total_chocolates():
+    total = 0
+    for _ in chocolates_received:
+        total+=_
+
+    return total
+def reward_child(child_id_rewarded,extra_chocolates):
+#ALWAYS PUT CHECKING CONDITIONS AS SOON AS POSSIBLE
+    if(extra_chocolates<1):
+
+        print("Extra chocolates is less than 1")
+    elif(child_id_rewarded not in child_id):
+
+        print("Child id is invalid")
+    else:
+        index = child_id.index(child_id_rewarded)
+        extra = chocolates_received[index]
+        extra += extra_chocolates
+        chocolates_received[index] = extra
+        print(chocolates_received)
+
+
+print(calculate_total_chocolates())
+reward_child(20,2)

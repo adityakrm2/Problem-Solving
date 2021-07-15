@@ -1,0 +1,185 @@
+age = input("What is your current age?")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+rem_age= 90 - int(age)
+
+days= rem_age * 365
+weeks= rem_age * 52
+months= rem_age*12
+print(f"You have {days} days, {weeks} weeks and {months} months left")
+
+bill=150
+total_bill=150 + (12/100*150)
+
+print("{:.2f}".format(round(total_bill/5.00,3)))
+
+1.
+print('print("what to print")')
+
+print("hello\n" + " " + "anika")
+print("a = " + input("a:"))
+#print(len(a))
+
+Program 1
+
+
+print("Welcome to the Program 'Band_Generator'\n ")
+
+a=input("Name of the City?\n ")
+
+b= input("Name of Pet?\n ")
+
+print("Your Band_name could be " + a + b)
+
+
+print("Welcome to the Love Calculator!")
+name1 = input("What is your name? \n")
+name2 = input("What is their name? \n").lower()
+
+# if "a" in name1:
+#   print("1")
+name1=name1.lower()
+# t = name1.count("t")
+# t+=name2.count("t")
+# print(t)
+#OR this method:-
+
+names= name1 + name2
+print(names)
+
+t= names.count("t")
+r= names.count("r")
+u= names.count("u")
+e= names.count("e")
+l= names.count("l")
+o = names.count("o")
+v = names.count("v")
+e=names.count("e")
+
+truelove=t + r +u + e + l + o +v +e
+
+print(truelove)
+2
+
+print('''
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/_____ /
+*******************************************************************************
+''')
+print("Welcome to Treasure Island.")
+print("Your mission is to find the treasure.") 
+
+#https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
+p1=input("Enter player name : ")
+print(f"You found yourself in a dilemma at a crossroad, Which path would you take {p1}?\n")
+path=input("left or right : ").lower()
+
+if path=="left":
+  print("game over")
+elif path=="right":
+  print("You encounter a DragonRider")
+  print('''
+                              ==(W{==========-      /===-
+                              ||  (.--.)         /===-_---~~~~~~~~~------____
+                              | \_,|**|,__      |===-~___                _,-'`
+                 -==\\        `\ ' `--'   ),    `//~\\   ~~~~`---.___.-~~
+             ______-==|        /`\_. .__/\ \    | |  \\           _-~`
+       __--~~~  ,-/-==\\      (   | .  |~~~~|   | |   `\        ,'
+    _-~       /'    |  \\     )__/==0==-\<>/   / /      \      /
+  .'        /       |   \\      /~\___/~~\/  /' /        \   /'
+ /  ____  /         |    \`\.__/-~~   \  |_/'  /          \/'
+/-'~    ~~~~~---__  |     ~-/~         ( )   /'        _--~`
+                  \_|      /        _) | ;  ),   __--~~
+                    '~~--_/      _-~/- |/ \   '-~ \
+                   {\__--_/}    / \\_>-|)<__\      \
+                   /'   (_/  _-~  | |__>--<__|      |
+                  |   _/) )-~     | |__>--<__|      |
+                  / /~ ,_/       / /__>---<__/      |
+                 o-o _//        /-~_>---<__-~      /
+                 (^(~          /~_>---<__-      _-~
+                ,/|           /__>--<__/     _-~
+             ,//('(          |__>--<__|     /                  .----_
+            ( ( '))          |__>--<__|    |                 /' _---_~\
+         `-)) )) (           |__>--<__|    |               /'  /     ~\`\
+        ,/,'//( (             \__>--<__\    \            /'  //        ||
+      ,( ( ((, ))              ~-__>--<_~-_  ~--____---~' _/'/        /'
+    `~/  )` ) ,/|                 ~-_~>--<_/-__       __-~ _/
+  ._-~//( )/ )) `                    ~~-'_/_/ /~~~~~~~__--~
+   ;'( ')/ ,)(                              ~~~~~~~~~~
+  ' ') '( (/
+    '   '  `
+  ''')
+else:
+  print("invalid")
+decision=input("Fight or Run? ").lower()
+if decision=="run":
+  print("game over")
+elif decision=="fight":
+  fighter=input(f"{p1} Would you Summon a Warrior or a Dragon? ").lower()
+  if fighter=="warrior":
+    print("game over")
+  elif fighter=="dragon":
+    print("You summoned a Dragon")
+    print('''
+                                              _   __,----'~~~~~~~~~`-----.__
+                                      .  .    `//====-              ____,-'~`
+                      -.            \_|// .   /||\\  `~~~~`---.___./
+                ______-==.       _-~o  `\/    |||  \\           _,'`
+          __,--'   ,=='||\=_    ;_,_,/ _-'|-   |`\   \\        ,'
+        _-'      ,='    | \\`.    '',/~7  /-   /  ||   `\.     /
+      .'       ,'       |  \\  \_  "  /  /-   /   ||      \   /
+    / _____  /         |     \\.`-_/  /|- _/   ,||       \ /
+    ,-'     `-|--'~~`--_ \     `==-/  `| \'--===-'       _/`
+              '         `-|      /|    )-'\~'      _,--"'
+                          '-~^\_/ |    |   `\_   ,^             /\
+                              /  \     \__   \/~               `\__
+                          _,-' _/'\ ,-'~____-'`-/                 ``===\
+                          ((->/'    \|||' `.     `\.  ,                _||
+            ./                       \_     `\      `~---|__i__i__\--~'_/
+          <_n_                     __-^-_    `)  \-.______________,-~'
+            `B'\)                  ///,-'~`__--^-  |-------~~~~^'
+            /^>                           ///,--~`-\    
+    ''')
+    skill=input("Use skill fireball or dash? ").lower()
+    if skill=="fireball":
+
+
+      print('''
+        (  )   /\   _                 (
+          \ |  (  \ ( \.(               )                      _____
+        \  \ \  `  `   ) \             (  ___                 / _   \
+      (_`    \+   . x  ( .\            \/   \____-----------/ (o)   \_
+      - .-               \+  ;          (  O                           \____
+                                )        \_____________  `              \  /
+      (__                +- .( -'.- <. - _  VVVVVVV VV V\                 \/
+      (_____            ._._: <_ - <- _  (--  _AAAAAAA__A_/                  |
+        .    /./.+-  . .- /  +--  - .     \______________//_              \_______
+        (__ ' /x  / x _/ (                                  \___'          \     /
+      , x / ( '  . / .  /                                      |           \   /
+          /  /  _/ /    +                                      /              \/
+        '  (__/                                             /                  \
+      ''')
+      print(f"{p1} you have defeated the gatekeeper, you WIN!")
+    else:
+      print("game over")  
+  else:
+    print("invalid")

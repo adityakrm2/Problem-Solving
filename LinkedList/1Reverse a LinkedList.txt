@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+class Node{
+	public:
+		int data;
+		Node* next;
+};
+
+void print(Node *n){
+	while(n!=NULL){  
+		cout<<n->data<<" ";
+		n=n->next;
+	}
+	};
+void append(Node **head_ref,int data){
+	Node* n= new Node();
+	Node *last=*head_ref;
+	n->data=data;
+	n->next=NULL;
+	  if (*head_ref == NULL)  
+    {  
+        *head_ref = n;  
+        return;  
+    }  
+	 while (last->next != NULL) { //stop when node->link will have null
+        last = last->next; 
+	}
+      last->next = n;  
+};	
+void begin(Node **head_ref,int data){
+	Node* n= new Node();
+	
+	n->data=data;
+	n->next=*head_ref;
+	*head_ref=n;
+	
+	
+};	
+void insertafter(Node *prev_ref,int data){
+	if (prev_ref == NULL)  
+    {  
+        cout << "the given previous node cannot be NULL";  
+        return;  
+    } 
+    
+	Node* n= new Node();
+	
+	n->data=data;
+	n->next=prev_ref->next;
+	prev_ref->next=n;
+	
+	
+};
+int main(){
+	
+	Node* head=NULL;
+	head= new Node();
+	Node* second=new Node();
+	Node* third=new Node();
+	
+	head->data=1;
+	head->next=second;
+	
+	second->data=2;
+	second->next=third;
+	
+	(*third).data=3;
+	(*third).next=NULL;
+	
+	
+	int data=11;
+	append(&head,data);
+	begin(&head,12);
+	insertafter(head->next,99);
+	print(head);
+	cout<<"\n"<<head->next->data;
+}

@@ -1,0 +1,45 @@
+def find_factors(num):
+
+    factors = []
+    for i in range(2,(num+1)):
+        if(num%i==0):
+            factors.append(i)
+    return factors
+
+def is_prime(num, i):
+
+    if(i==1):
+        return True
+    elif(num%i==0):
+        return False
+    else:
+        return(is_prime(num,i-1))
+
+def find_largest_prime_factor(list_of_factors):
+    largest=0
+    for _ in list_of_factors:
+        if _>largest:
+            largest=_
+    return largest
+
+def find_f(num):
+    l=0
+    l1=[]
+    list=find_factors(num)
+    for _ in list:
+        if is_prime(_,_-1):
+            l1.append(_)
+    l=find_largest_prime_factor(l1)
+    return l
+
+def find_g(num):
+    sum=0
+    for i in range(num,num+9):
+        sum+=find_f(i)
+    return sum
+print(find_g(10))
+# print(find_f(12))
+# print(find_largest_prime_factor([1,2,35,4]))
+# print(find_factors(10))
+# print(is_prime(20,20//2))
+# print(find_g(10))

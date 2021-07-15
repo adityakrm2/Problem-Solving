@@ -1,0 +1,17 @@
+class Athlete:
+    def __init__(self,name,gender):
+        self.__name=name
+        self.gender=gender
+    def print_name(self): #getter function
+        print(self.__name)
+    def set_name(self,name): #setter function
+        self.__name=name
+    def running(self):
+        if(self.gender=="girl"):
+            print("150mtr running")
+        else:
+            print("200mtr running")
+player=Athlete("adi","boy")
+player.print_name()
+player.set_name("aditya")
+player.print_name()

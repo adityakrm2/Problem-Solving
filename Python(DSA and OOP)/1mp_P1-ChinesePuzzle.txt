@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+// Function that calculates count for deers
+int count(int heads, int legs){
+   int count = 0;
+   count = ((legs)-2 * (heads))/2;
+   return count;
+}
+int main(){
+   int heads = 80;
+   int legs = 200;
+   int deers = count(heads, legs);
+   int peacocks = heads - deers;
+   cout<<"Count of deers are: "<<deers<< endl;
+   cout<<"Count of peacocks are: " <<peacocks<< endl;
+   return 0;
+}
+
+2
+
+# heads=150
+# legs=400
+#
+# for i in range(heads+1):
+#     j=heads-1
+#     if(2*i)+(4*j)==legs:
+#         print(i)
+#         print(j)
+
+def solve(heads,legs):
+    error_msg="No solution"
+    chicken_count=0
+    rabbit_count=0
+    ans=False
+    #Populate the variables: chicken_count and rabbit_count
+    for i in range(heads+1):
+        j=heads-i
+        if (2*i)+(4*j)==legs:
+            chicken_count=i
+            rabbit_count=j
+            ans=True
+            break
+    if (ans==True):
+        print(chicken_count,rabbit_count)
+    else:
+        print(error_msg)
+solve(5,10)

@@ -1,0 +1,19 @@
+def find_leap_years(given_year):
+
+    list_of_leap_years=[]
+    for year in range(given_year,given_year+999):
+        if(len(list_of_leap_years)==15):
+            break
+        if (year % 400 == 0):
+            list_of_leap_years.append(year)
+        elif (year % 4 == 0 and year % 100 != 0):
+            list_of_leap_years.append(year)
+
+
+        else:
+            continue
+
+    return list_of_leap_years
+
+list_of_leap_years=find_leap_years(2000)
+print(list_of_leap_years)
