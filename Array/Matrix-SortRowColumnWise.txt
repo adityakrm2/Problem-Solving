@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+int main(){
+    int m=4;
+    int n=4;
+int mat[m][n]= {{10,20,30,40},
+{15,25,35,45 },
+{27,29,37,48 },
+{32,33,39,50}};
+int o=m*n;
+int temp[o];
+int i=0;
+int j=0;
+int k=0;
+while(i<o){
+    temp[i]=mat[j][k];
+    i++;
+    k++;
+    if(k==n){
+        k=0;
+        j++;
+    }
+}
+sort(temp,temp+o);
+
+
+int i1=0;
+int j1=0;
+int k1=0;
+while(i1<o){
+    mat[j1][k1]=temp[i1];
+    i1++;
+    k1++;
+    if(k1==n){
+        k1=0;
+        j1++;
+    }
+}
+
+for(int i=0;i<m;i++){
+    for(int j=0;j<n;j++){
+        cout<<mat[i][j]<<" ";
+    }
+    cout<<endl;
+}
+
+    return 0;
+}

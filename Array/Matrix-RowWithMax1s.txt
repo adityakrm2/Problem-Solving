@@ -1,0 +1,36 @@
+#include <bits/stdc++.h> 
+using namespace std;
+
+int main(){
+int n=4;
+int m=4;
+int arr[n][m] = {{0, 1, 1, 1},
+           {0, 0, 1, 1},
+           {1, 1, 1, 1},
+           {0, 0, 0, 0}};
+
+int curr_n=0;
+int max_n=0;
+int row=0;
+int i=0;
+int j=0;
+
+while(i<n){
+    if(arr[i][j]==1){
+        curr_n+=1;
+    }
+    if(curr_n>max_n){
+        max_n=curr_n;
+        row=i;
+    }
+    j++;
+    if(j==m){
+        curr_n=0;
+        j=0;
+        i++;
+    }
+}
+
+cout<<"Answer is "<<row+1<<" row with "<<row<<" index.";
+return 0;
+}

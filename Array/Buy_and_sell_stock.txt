@@ -1,0 +1,46 @@
+1.
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+	int a[]={7,1,5,3,6,4};
+	int n=sizeof(a)/sizeof(a[0]);
+	int profit=0;
+int min_val=INT_MAX;
+for(int i=0;i<n;i++){
+	if(a[i]<min_val){
+		min_val=a[i];
+	}
+	if(a[i]-min_val>profit){
+		profit=a[i]-min_val;
+	}
+}
+
+cout<<profit;
+}
+
+
+
+2. Bruteforce
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+int a[]={7,1,5,3,6,4};
+int n=sizeof(a)/sizeof(a[0]);
+
+int highest=INT_MIN;
+for(int i=0;i<n-1;i++){
+	for(int j=i+1;j<n;j++){
+		if(a[j]-a[i]>highest){
+			highest=a[j]-a[i];
+			
+		}
+	}
+}
+cout<<highest;
+
+}

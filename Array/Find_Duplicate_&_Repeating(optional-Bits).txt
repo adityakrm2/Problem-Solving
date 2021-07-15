@@ -1,0 +1,54 @@
+1. Bit (xor)
+2.s and s^2 formulas
+
+3. HASHING
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int a[7];
+int main(){
+	
+vector<int> v={4,3,6,2,1,1};
+
+for(int i=0;i<v.size();i++){
+	
+	a[v[i]]++;
+	
+}
+int n=sizeof(a)/sizeof(a[0]);
+for(int i=1;i<n;i++){
+	if(a[i]>1){
+		cout<<i<<"\n";
+	}
+	if(a[i]==0){
+		cout<<i<<"\n";
+	}
+}
+
+}
+4. Brute
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+int arr[]={4,3,6,2,1,1};
+int n= sizeof(arr)/sizeof(arr[0]);
+sort(arr,arr+n);
+bool a=0;
+int count=1;
+for(int i=0;i<n;i++){
+	if(a==0 && arr[i]!=count){
+		cout<<"missing element is: "<<count<<"\n";
+		a=1;
+	}
+	count++;
+	if(i<n-1 && arr[i]==arr[i+1]){
+		cout<<"repeating element is: "<<arr[i]<<"\n";
+
+	}
+}
+
+}

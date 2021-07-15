@@ -1,0 +1,53 @@
+1. Moore voting algo
+
+2. Hash Map-uh
+
+#include <bits/stdc++.h>
+using namespace std;
+int a[11]; // maximum possible number + 1 as index
+int main(){
+	int arr[]={3,2,3};
+	int n=sizeof(arr)/sizeof(arr[0]);
+
+
+	
+	for(int i=0;i<n;i++){
+		a[arr[i]]++;
+		}
+	
+	for(int i=0;i<11;i++){
+		if (a[i]>n/2){
+			cout<<i;
+			break;
+		}
+	}
+}
+3.
+brute - either nested for loop to check count of every element or sort:-
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int arr[]={3,2,3};
+	int n=sizeof(arr)/sizeof(arr[0]);
+	sort(arr,arr+n);
+	
+	int curr=0;
+	
+	for(int i=0;i<n-1;i++){
+		if(arr[i]==arr[i+1]){
+			curr++;
+		}
+		else{
+			curr=0;
+		}
+		if(curr==n/2){
+			cout<<arr[i];
+			break;
+		}
+		
+	}
+	
+	
+	
+}

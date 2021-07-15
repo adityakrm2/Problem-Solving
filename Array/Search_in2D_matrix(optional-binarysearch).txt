@@ -1,0 +1,79 @@
+1. //WORKS IN BOTH ROW WISE AND COLUMNWISE 
+//SORTED AND ENTIREY SORTED MATRICES
+
+4 4
+10 20 30 40 
+15 25 35 45
+27 29 37 48
+32 33 39 50
+4 3     
+1 2 3
+4 5 6
+7 8 9
+10 11 12
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+ 
+int n,m;
+cin>>n>>m;
+int vec[n][m];
+for(int i=0;i<n;i++){
+	for(int j=0;j<m;j++){
+		cin>>vec[i][j];
+	}
+}
+
+int ele =12;
+int i=n-1;
+int j=0;
+
+cout<<vec[1][0];
+ while(i>=0 && j<=m-1) {
+ 	if(vec[i][j]==ele){
+ 		cout<<"found at: "<<i<<j;
+ 		return 0;
+ 	}
+ 	else if(vec[i][j]<ele){
+ 		j++;
+ 	}
+ 	else{
+ 		i--;
+ 	}
+ }
+cout<<"not found"; 
+}
+2. Brute force
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<vector<int> > vec; 
+    int ROW,COL;
+    cin>>ROW>>COL;
+    int num = 10;  
+    for (int i = 0; i < ROW; i++) {     
+        vector<int> v1; 
+        for (int j = 0; j < COL; j++) {
+        	cin>>num;
+            v1.push_back(num);
+            }    
+               vec.push_back(v1);
+    }
+int ele =3;
+
+
+  
+    for (int i = 0; i < vec.size(); i++) {
+        for (int j = 0; j < vec[i].size(); j++){
+        	if(vec[i][j]==ele){
+        		cout<<"found at: "<<i<<j;
+        		return 0;
+        	}
+            // cout << vec[i][j] << " ";
+        // cout << endl;
+        }
+    }
+    cout<<"not found";
+}

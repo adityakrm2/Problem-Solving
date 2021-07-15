@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+
+int arr[] = {5, 20, 3, 2, 50, 80};
+int k=78;
+int n=sizeof(arr)/sizeof(arr[0]);
+
+for(int i=0;i<n-1;i++){
+  for(int j=1;j<n;j++){
+    if(abs(arr[i]-arr[j])==k){
+      cout<<"found at ("<<arr[i]<<","<<arr[j]<<")";
+      return 0;
+    }
+  }
+}
+cout<<"not found";
+  return 0;
+}
+
+2.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+
+int arr[] = {5, 20, 3, 2, 50, 80};
+int k=78;
+int n=sizeof(arr)/sizeof(arr[0]);
+sort(arr,arr+n);
+
+int left =0;
+int right=1;
+
+while(left<n && right<n){
+  if(left!=right && arr[right]-arr[left]==k){
+ cout << "Found at : (" << arr[left] << 
+                        ", " << arr[right] << ")";  
+            return 0;  
+        }  
+        else if (arr[right]-arr[left] <k)  
+            right++;  
+        else
+            left++;  
+    }  
+  
+cout<<"not found";
+return 0;
+}

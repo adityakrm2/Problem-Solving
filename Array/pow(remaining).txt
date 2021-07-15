@@ -1,0 +1,36 @@
+2.#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	float x;
+	cin>>x;
+	float n=3;
+float x1=pow(x,n);
+
+
+printf("%0.5f",x1);
+
+
+
+}
+
+3. BRUTE
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	double x;
+	cin>>x;
+	double n=3;
+float x1=1;
+
+for(int i=1;i<=n;i++){
+	x1=x1*x;
+}
+
+printf("%0.5f",x1);
+
+
+
+}

@@ -1,0 +1,66 @@
+1 KADANE 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+int a[]={-1,2,4,-3,5,2,-5,2};
+int n=sizeof(a)/sizeof(a[0]);
+int best=INT_MIN, sum=0;
+for(int i=0;i<n;i++){
+		
+		sum=max(a[i],sum+a[i]);
+		best=max(best,sum);	
+		
+}
+
+cout<<best;
+}
+2.
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+int a[]={-1,2,4,-3,5,2,-5,2};
+int n=sizeof(a)/sizeof(a[0]);
+int best=0;
+for(int i=0;i<n;i++){
+	for(int j=i;j<n;j++){
+		int sum=0;
+		for(int k=i;k<j;k++){
+			sum+=a[k];
+		}
+	best=max(best,sum);
+	}
+}
+
+cout<<best;
+}
+
+3.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+int a[]={-1,2,4,-3,5,2,-5,2};
+int n=sizeof(a)/sizeof(a[0]);
+int best=0;
+for(int i=0;i<n;i++){
+	int sum=0;
+	for(int j=i;j<n;j++){
+		
+		sum+=a[j];
+		best=max(best,sum);
+	}	
+	
+	
+}
+
+cout<<best;
+}
+
+
