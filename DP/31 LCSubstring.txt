@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[10][10]; //for this example dp[4][4] and mem[4][4] also works as mem[4][4]=mem[n1+1][n2+1]
+
+int subsDP(string x,string y,int n1,int n2){
+    int max1=0;
+    for (int i = 0; i <=n1; ++i) {
+        for (int j = 0; j <=n2; ++j) {
+            if(i==0||j==0) dp[i][j]=0;
+            else if(x[i-1]==y[j-1]) dp[i][j]=1+dp[i-1][j-1],max1=max(dp[i][j],max1); //we can also traverse later to find the maximum number
+            else  dp[i][j] = 0;
+        }
+    }
+    return max1;
+};
+
+int main(){
+    string x="abcde";
+    string y="ababcde";
+    int n1=x.size(),n2=y.size();
+    cout<<subsDP(x,y,n1,n2);
+}
+
+//recursive
+
+#include <bits/stdc++.h>
+using namespace std;
+int max1=0;
+int subs(string x,string y,int n1,int n2,int curr){
+    max1=max(max1,curr);
+    if(n1==0||n2==0) return 0;
+    if(x[n1-1]==y[n2-1]) return subs(x,y,n1-1,n2-1,curr+1);
+    else return max(subs(x,y,n1-1,n2,0),subs(x,y,n1,n2-1,0));
+}
+
+int main(){
+    string x="abcdzxcc";
+    string y="abdezxcc";
+    int n1=x.size(),n2=y.size();
+    subs(x,y,n1,n2,0);
+    cout<<max1;
+}

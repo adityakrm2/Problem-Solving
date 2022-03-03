@@ -1,0 +1,89 @@
+//1.Recursive
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int subs(string x,string y,int n1,int n2){
+    if(n1==0||n2==0) return 0;
+    if(x[n1-1]==y[n2-1]) return 1+ subs(x,y,n1-1,n2-1);
+    else return max(subs(x,y,n1-1,n2),subs(x,y,n1,n2-1));
+}
+
+int main(){
+    string x="bcd";
+    string y="bde";
+    int n1=x.size(),n2=y.size();
+    cout<<subs(x,y,n1,n2);
+}
+
+//2. Memoization
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int mem[10][10];
+int dp[10][10]; //for this example dp[4][4] and mem[4][4] also works as mem[4][4]=mem[n1+1][n2+1]
+
+
+int subs(string x,string y,int n1,int n2){
+
+    if(n1==0||n2==0) return 0;
+    if(x[n1-1]==y[n2-1]) return 1+ subs(x,y,n1-1,n2-1);
+    else return max(subs(x,y,n1-1,n2),subs(x,y,n1,n2-1));
+}
+
+int subsMem(string x,string y,int n1,int n2){
+    
+    if(n1==0||n2==0) return 0;
+    if(mem[n1][n2]) return mem[n1][n2];
+    if(x[n1-1]==y[n2-1]) return mem[n1][n2]=1+ subsMem(x,y,n1-1,n2-1);
+    else return mem[n1][n2]=max(subsMem(x,y,n1-1,n2),subsMem(x,y,n1,n2-1));
+}
+int subsDP(string x,string y,int n1,int n2){
+    for (int i = 0; i <=n1; ++i) {
+        for (int j = 0; j <=n2; ++j) {
+            if(i==0||j==0) dp[i][j]=0;
+            else if(x[i-1]==y[j-1]) dp[i][j]=1+dp[i-1][j-1];
+            else dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+        }
+    }
+    return dp[n1][n2];
+};
+
+int main(){
+    string x="bcd";
+    string y="bde";
+    int n1=x.size(),n2=y.size();
+    cout<<subs(x,y,n1,n2);
+    cout<<endl;
+    cout<<subsMem(x,y,n1,n2);
+   cout<<endl;
+	cout<<subsDP(x,y,n1,n2);
+}
+
+//3. DP
+
+#include <bits/stdc++.h>
+using namespace std;
+int dp[10][10]; //for this example dp[4][4] and mem[4][4] also works as mem[4][4]=mem[n1+1][n2+1]
+
+
+
+int subsDP(string x,string y,int n1,int n2){
+    for (int i = 0; i <=n1; ++i) {
+        for (int j = 0; j <=n2; ++j) {
+            if(i==0||j==0) dp[i][j]=0;
+            else if(x[i-1]==y[j-1]) dp[i][j]=1+dp[i-1][j-1];
+            else dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+        }
+    }
+    return dp[n1][n2];
+};
+
+int main(){
+    string x="bcd";
+    string y="bde";
+    int n1=x.size(),n2=y.size();
+
+    cout<<subsDP(x,y,n1,n2);
+}

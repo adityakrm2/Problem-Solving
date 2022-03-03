@@ -1,0 +1,30 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+int dp[10][10]; //for this example dp[4][4] and mem[4][4] also works as mem[4][4]=mem[n1+1][n2+1]
+
+
+
+int subsDP(string x,string y,int n1,int n2){
+    for (int i = 0; i <=n1; ++i) {
+        for (int j = 0; j <=n2; ++j) {
+            if(i==0||j==0) dp[i][j]=0;
+            else if(x[i-1]==y[j-1]) dp[i][j]=1+dp[i-1][j-1];
+            else dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+        }
+    }
+    return dp[n1][n2];
+};
+
+int main(){
+    string x="agbcba";
+    string y=x;
+    reverse(y.begin(),y.end());
+    int n1=x.size(),n2=y.size();
+    int ans=subsDP(x,y,n1,n2);
+	cout<<ans;
+	//
+	//MIN NO OF DELETIONS/INSERTIONS TO MAKE A STRING PALINDROME
+	//
+   cout<<n1-ans;
+}

@@ -1,0 +1,130 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node{
+    int data;
+    struct Node*left;
+    struct Node*right;
+    Node(int val){  //kind of a constructor
+        data=val;
+        left=right=NULL;
+    }
+};
+
+void preorder(struct Node*root){ //Node* root also works
+    if(root==NULL) return;
+    cout<<root->data;
+    preorder(root->left);
+    preorder(root->right);
+}
+void inorder(Node*root){
+    if(root==NULL) return;
+    preorder(root->left);
+    cout<<root->data;
+    preorder(root->right);
+}
+void postorder(Node*root){
+    if(root==NULL) return;
+    preorder(root->left);
+    preorder(root->right);
+    cout<<root->data;
+}
+	
+int main()
+{
+    struct Node*root= new Node(1);
+    root->left= new Node(2);
+    (*root).right=new Node(3);
+    root->left->right= new Node(4);
+    preorder(root);
+    //inorder(root);
+    //postorder(root);
+
+}
+
+//2 IMPORTANT
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct TreeNode {
+         int val;
+        TreeNode *left;
+        TreeNode *right;
+       TreeNode() : val(0), left(nullptr), right(nullptr) {} //if you just create a TreeNode object val will be 0 and both pointers will be nullptr
+        TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}  //if you only specify a value then it would assume it is a leaf node and left and right pointers will be nullptr
+        TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} //alongside val if you want to attach subtree something probably like:- struct TreeNode*root= new TreeNode(1,new TreeNode(2),new TreeNode(3));
+     };
+class Solution {
+private:
+    void dfs(TreeNode *node, vector<int> &preorder) {
+        if(node == NULL) return;
+        cout<<node->val<<" ";
+        preorder.push_back(node->val);
+        dfs(node->left, preorder);
+        dfs(node->right, preorder);
+    }
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> preorder;
+        dfs(root, preorder);
+        return preorder;
+    }
+};
+int main()
+{
+    //Using second constructor
+	//struct TreeNode*root= new TreeNode(1);
+	//root->left= new TreeNode(2);
+	//(*root).right=new TreeNode(3);
+	
+	//OR third constructor
+	struct TreeNode*root= new TreeNode(1,new TreeNode(2),new TreeNode(3));
+    root->left->right= new TreeNode(4);
+	//OR 
+	//struct TreeNode*root= new TreeNode(1,new TreeNode(2, nullptr,new TreeNode(4) ),new TreeNode(3)); //it is same as above 2 lines
+    Solution s1;
+    s1.preorderTraversal(root);
+
+}
+
+
+
+// EXTRA :- For inorder and postorder
+
+class Solution {
+private:
+    void dfs(TreeNode *node, vector<int> &inorder) {
+        if(node == NULL) return;
+        dfs(node->left, inorder);
+        inorder.push_back(node->val);
+       
+        dfs(node->right, inorder);
+    }
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> inorder;
+        dfs(root, inorder);
+        return inorder;
+    }
+};
+
+class Solution {
+private:
+    void dfs(TreeNode *node, vector<int> &postorder) {
+        if(node == NULL) return;
+        dfs(node->left, postorder);
+        
+       
+        dfs(node->right, postorder);
+        postorder.push_back(node->val);
+    }
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> postorder;
+        dfs(root, postorder);
+        return postorder;
+    }
+};

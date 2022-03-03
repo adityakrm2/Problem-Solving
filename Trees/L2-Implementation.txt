@@ -1,0 +1,51 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node{
+		int data;
+		struct Node*left;
+		struct Node*right;
+		Node(int val){  //kind of a constructor
+			data=val;
+			left=right=NULL;
+			}
+		};
+
+int main()
+{
+struct Node*root= new Node(1); /
+root->left= new Node(2);
+(*root).right=new Node(3);
+root->left->right= new Node(4);
+}
+
+//2
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct TreeNode {
+         int val;
+        TreeNode *left;
+        TreeNode *right;
+       TreeNode() : val(0), left(nullptr), right(nullptr) {} //if you just create a TreeNode object val will be 0 and both pointers will be nullptr
+        TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}  //if you only specify a value then it would assume it is a leaf node and left and right pointers will be nullptr
+        TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} //alongside val if you want to attach subtree something probably like:- struct TreeNode*root= new TreeNode(1,new TreeNode(2),new TreeNode(3));
+     };
+
+int main()
+{
+    //Using second constructor
+	//struct TreeNode*root= new TreeNode(1);
+	//root->left= new TreeNode(2);
+	//(*root).right=new TreeNode(3);
+	
+	//OR third constructor
+	struct TreeNode*root= new TreeNode(1,new TreeNode(2),new TreeNode(3));
+    root->left->right= new TreeNode(4);
+   
+
+}
+

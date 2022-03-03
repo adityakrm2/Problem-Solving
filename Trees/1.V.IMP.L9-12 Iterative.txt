@@ -1,0 +1,130 @@
+//ITERATIVE
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {} //if you just create a TreeNode object val will be 0 and both pointers will be nullptr
+    explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}  //if you only specify a value then it would assume it is a leaf node and left and right pointers will be nullptr
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} //alongside val if you want to attach subtree something probably like:- struct TreeNode*root= new TreeNode(1,new TreeNode(2),new TreeNode(3));
+};
+class Solution {
+
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> preorder;
+        if(root == nullptr) return preorder;
+
+        stack<TreeNode*> s;
+        s.push(root);
+        while(!s.empty()) {
+            TreeNode* temp=s.top();
+            s.pop();
+            preorder.push_back(temp->val);
+            if(temp->right!= nullptr) s.push(temp->right);
+            if(temp->left!= nullptr) s.push(temp->left);
+        }
+        return preorder;
+    }
+};
+int main()
+{
+    //Using second constructor
+    //struct TreeNode*root= new TreeNode(1);
+    //root->left= new TreeNode(2);
+    //(*root).right=new TreeNode(3);
+
+    //OR third constructor
+    struct TreeNode*root= new TreeNode(1,new TreeNode(2),new TreeNode(3));
+    root->left->right= new TreeNode(4);
+    //OR
+    //struct TreeNode*root= new TreeNode(1,new TreeNode(2, nullptr,new TreeNode(4) ),new TreeNode(3)); //it is same as above 2 lines
+    Solution s1;
+    vector<int> v;
+    v=s1.preorderTraversal(root);
+    for(auto it:v) cout<<it<<" ";
+}
+
+
+//Inorder IMPORTANT
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> inorder;
+        stack<TreeNode*> s;
+        TreeNode* node=root;
+        while(true) {
+                if(node!= nullptr){
+                    s.push(node);
+                    node=node->left;
+                }
+                else{
+                    if(s.empty()) break;
+                    node=s.top();
+                    s.pop();
+                    inorder.push_back(node->val);
+                    node=node->right;
+                }
+        }
+        return inorder;
+    }
+};
+
+//Postorder
+
+class Solution1 {
+
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> postorder;
+        if(root == nullptr) return postorder;
+        stack<TreeNode*> st1, st2;
+        st1.push(root);
+        while(!st1.empty()) {
+            root = st1.top();
+            st1.pop();
+            st2.push(root); //instead of stack 2 I could probs use vector to store then reverse the vector
+            if(root->left != nullptr) st1.push(root->left);
+            if(root->right != nullptr) st1.push(root->right);
+        }
+        while(!st2.empty()) {
+            postorder.push_back(st2.top()->val);
+            st2.pop();
+        }
+        return postorder;
+    }
+};
+
+class Solution2 {
+
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> postorder;
+        if(root == nullptr) return postorder;
+        stack<TreeNode*> st1;
+        TreeNode* current = root;
+        while(current != nullptr || !st1.empty()) {
+            if(current != nullptr){
+                st1.push(current);
+                current = current->left;
+            }else{
+                TreeNode* temp = st1.top()->right;
+                if (temp == nullptr) {
+                    temp = st1.top();
+                    st1.pop();
+                    postorder.push_back(temp->val);
+                    while (!st1.empty() && temp == st1.top()->right) {
+                        temp = st1.top();
+                        st1.pop();
+                        postorder.push_back(temp->val);
+                    }
+                } else {
+                    current = temp;
+                }
+            }
+        }
+        return postorder;
+    }
+};

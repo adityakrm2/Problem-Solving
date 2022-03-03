@@ -1,0 +1,30 @@
+//ONLY 3 things are different from unbounded knapsack
+#include <bits/stdc++.h>
+using namespace std;
+int knapSack(int W, int wt[],  int n)
+{
+    int i, w;
+    vector<vector<int>> K(n + 1, vector<int>(W + 1));
+    for(i = 0; i <= n; i++)
+    {
+        for(w = 0; w <= W; w++)    
+        {
+            if ( w == 0) K[i][w] = 1;  //1. initialisation
+            else if (i == 0 )
+                K[i][w] = 0;
+            else if (wt[i - 1] <= w)
+                K[i][w] = K[i][w - wt[i - 1]]+  //2. this line
+                              K[i - 1][w];
+            else K[i][w] = K[i - 1][w];
+        }
+    }
+    return K[n][W];
+}
+int main()
+{
+    //int val[] = { 1,2,3}; //3. there is no val array
+    int wt[] = { 1,2,3 };
+    int W = 5;
+    int n = sizeof(wt) / sizeof(wt[0]);
+    cout << knapSack(W, wt,  n);
+}

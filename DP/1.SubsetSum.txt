@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool Subset(int sum, int wt[], int n){
+    if(sum==0) return true;
+    if(n==0) return false;
+    if(sum>=wt[n-1]) return Subset(sum,wt,n-1)||Subset(sum-wt[n-1],wt,n-1);
+    return Subset(sum,wt,n-1);
+}
+int main() {
+
+        int wt[] = { 60, 100, 120 };
+        int sum = 180;
+        int n = sizeof(wt) / sizeof(wt[0]);
+        cout << Subset(sum, wt, n);
+
+}
+
+//3. Top Down
+
+
+#include<bits/stdc++.h>
+using namespace std;
+bool Subset(int sum, int wt[], int n){
+    bool k[n+1][sum+1];
+    for (int i = 0; i <n+1 ; ++i) {
+        for (int w = 0; w <sum+1 ; ++w) {
+            if(w==0) k[i][w] =true;
+            else if(i==0) k[i][w]=false;
+            else if(sum>=wt[n-1]) k[i][w]=k[i-1][w] || k[i-1][w-wt[n-1]];
+            else k[i][w]=k[i-1][w];
+        }
+    }
+    return k[n][sum];
+}
+int main() {
+
+        int wt[] = { 60, 100, 120 };
+        int sum = 1810;
+        int n = sizeof(wt) / sizeof(wt[0]);
+        cout << Subset(sum, wt, n);
+
+}
